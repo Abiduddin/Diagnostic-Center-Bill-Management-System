@@ -1,0 +1,6 @@
+E:\Work Place\project\github\Diagnostic-Center-Bill-Management-System\Diagnostic-Center-Bill-Management-System\bin\Diagnostic-Center-Bill-Management-System.dll.config
+E:\Work Place\project\github\Diagnostic-Center-Bill-Management-System\Diagnostic-Center-Bill-Management-System\bin\Diagnostic-Center-Bill-Management-System.dll
+E:\Work Place\project\github\Diagnostic-Center-Bill-Management-System\Diagnostic-Center-Bill-Management-System\bin\Diagnostic-Center-Bill-Management-System.pdb
+E:\Work Place\project\github\Diagnostic-Center-Bill-Management-System\Diagnostic-Center-Bill-Management-System\obj\Debug\Diagnostic-Center-Bill-Management-System.csprojResolveAssemblyReference.cache
+E:\Work Place\project\github\Diagnostic-Center-Bill-Management-System\Diagnostic-Center-Bill-Management-System\obj\Debug\Diagnostic-Center-Bill-Management-System.dll
+E:\Work Place\project\github\Diagnostic-Center-Bill-Management-System\Diagnostic-Center-Bill-Management-System\obj\Debug\Diagnostic-Center-Bill-Management-System.pdb
