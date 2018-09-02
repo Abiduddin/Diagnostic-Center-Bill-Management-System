@@ -15,5 +15,23 @@ namespace Diagnostic_Center_Bill_Management_System.BLL
             aTestTypeGateway.SaveTestType(aTestType);
         }
 
+        public List<TestType> GetAllTestTypes()
+        {
+            return aTestTypeGateway.GetAllTestTypes();
+        }
+
+        public bool IsUniqeTestTypeName(string name)
+        {
+            return aTestTypeGateway.IsUniqeTestTypeName(name);
+
+/*            if (rowAffected <= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }*/
+        }
     }
 }

@@ -38,5 +38,14 @@ namespace Diagnostic_Center_Bill_Management_System.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button saveButton;
+        
+        /// <summary>
+        /// typeViewGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView typeViewGridView;
     }
 }

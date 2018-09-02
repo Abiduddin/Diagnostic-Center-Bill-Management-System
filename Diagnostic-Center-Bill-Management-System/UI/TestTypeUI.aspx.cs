@@ -14,17 +14,39 @@ namespace Diagnostic_Center_Bill_Management_System.UI
         TestTypeManager aTestTypeManager = new TestTypeManager();
         protected void Page_Load(object sender, EventArgs e)
         {
+            DisplayTestType();
+        }
 
+
+        void DisplayTestType()
+        {
+            List<TestType> aTestTypes = aTestTypeManager.GetAllTestTypes();
+            typeViewGridView.DataSource = aTestTypes;
+            typeViewGridView.DataBind();
         }
 
         protected void saveButton_Click(object sender, EventArgs e)
         {
-            TestType aTestType = new TestType();
-            aTestType.Name = typeNameTextBox.Text;
+            string Name = typeNameTextBox.Text;
 
-            aTestTypeManager.SaveTestType(aTestType);
+            if (!aTestTypeManager.IsUniqeTestTypeName(Name))
+            {
+                TestType aTestType = new TestType();
+                aTestType.Name = Name;
+
+                aTestTypeManager.SaveTestType(aTestType);
+            }
+            else
+            {
+                
+            }
+
+            
+
+            DisplayTestType();
 
         }
+
 
     }
 }
