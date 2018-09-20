@@ -14,6 +14,7 @@ namespace Diagnostic_Center_Bill_Management_System.UI
         TestManager aTestManager = new TestManager();
         PatientManager aPatientManager = new PatientManager();        
         TestRequestManager aTestRequestManager = new TestRequestManager();
+        PaymentManager aPaymentManager = new PaymentManager();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -61,6 +62,7 @@ namespace Diagnostic_Center_Bill_Management_System.UI
             List<Test> aTests = new List<Test>();
             Test aTest = new Test();
             Patient aPatient = new Patient();
+            aTests = (List<Test>)ViewState["patientTest"];
 
             aPatient.Name = patientNameTextBox.Text;
             aPatient.BirthDate = birthDateTextBox.Text;
@@ -69,11 +71,22 @@ namespace Diagnostic_Center_Bill_Management_System.UI
 
             aPatientManager.SavePatient(aPatient);
             int patientId = aPatientManager.GetPatientId(aPatient);
-            int billNo = aTestRequestManager.GetUniqueBillNo();
-            aTests =(List<Test>) ViewState["patientTest"];
+            
+            
+            Payment aPayment = new Payment();
+            aPayment.BillNo = aPaymentManager.GetUniqueBillNo();
+            aPayment.IsPaid = false;
+            aPayment.TotalFee = aPaymentManager.GetTotalFee(aTests);
+            // TAKE INPUT FROM USER FORM
+            aPayment.DueDate = "01/01/2018";
+
+
+            aPaymentManager.SavePayment(aPayment);
+
+            
             
 
-            aTestRequestManager.RequestAllTest(aTests,patientId,billNo);
+            aTestRequestManager.RequestAllTest(aTests,patientId,aPayment.BillNo);
 
 
             ViewState["patientTest"] = new List<Test>();

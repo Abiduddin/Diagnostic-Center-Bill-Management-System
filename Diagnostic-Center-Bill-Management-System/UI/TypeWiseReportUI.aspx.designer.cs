@@ -10,7 +10,7 @@
 namespace Diagnostic_Center_Bill_Management_System.UI {
     
     
-    public partial class TestTypeUI {
+    public partial class TypeWiseReportUI {
         
         /// <summary>
         /// form1 control.
@@ -22,30 +22,57 @@ namespace Diagnostic_Center_Bill_Management_System.UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// typeNameTextBox control.
+        /// fromDateTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox typeNameTextBox;
+        protected global::System.Web.UI.WebControls.TextBox fromDateTextBox;
         
         /// <summary>
-        /// Button1 control.
+        /// toDateTextBoxTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox toDateTextBoxTextBox;
         
         /// <summary>
-        /// typeViewGridView control.
+        /// showButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView typeViewGridView;
+        protected global::System.Web.UI.WebControls.Button showButton;
+        
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// pdfButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button pdfButton;
+        
+        /// <summary>
+        /// totalMoneyTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox totalMoneyTextBox;
     }
 }

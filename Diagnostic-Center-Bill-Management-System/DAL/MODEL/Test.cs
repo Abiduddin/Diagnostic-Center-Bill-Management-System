@@ -13,6 +13,8 @@ namespace Diagnostic_Center_Bill_Management_System.DAL.MODEL
         public string Name { get; set; }
         public int Fee { get; set; }
         public int TypeId { get; set; }
+        
+        
 
     }
 }

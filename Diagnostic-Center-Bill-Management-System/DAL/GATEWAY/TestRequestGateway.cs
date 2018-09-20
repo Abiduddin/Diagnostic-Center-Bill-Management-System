@@ -28,28 +28,6 @@ namespace Diagnostic_Center_Bill_Management_System.DAL.GATEWAY
         }
 
 
-        public bool IsBillNoUniqe(int billNo)
-        {
-            bool unique;
-
-            Query = "SELECT * FROM TestRequest WHERE BillNo = @billno";
-            Command = new SqlCommand(Query,Connection);
-            Command.Parameters.Add("billNo", SqlDbType.Int).Value = billNo;
-
-            Connection.Open();
-            Reader = Command.ExecuteReader();
-            if (Reader.HasRows)
-            {
-                unique = false;
-            }
-            else
-            {
-                unique = true;
-            }
-            Reader.Close();
-            Connection.Close();
-
-            return unique;
-        }
+       
     }
 }

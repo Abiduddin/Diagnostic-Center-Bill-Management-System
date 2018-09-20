@@ -19,5 +19,7 @@ namespace Diagnostic_Center_Bill_Management_System.BLL
         {
             return aPatientGateway.GetPatientId(aPatient);
         }
+
+
     }
 }

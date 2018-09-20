@@ -217,6 +217,8 @@ svg {
 
 table {
   border-collapse: collapse;
+    margin-left: 150px;
+    margin-top: 29px;
 }
 
 caption {
@@ -618,6 +620,8 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+    top: -7px;
+    left: 1px;
 }
 
 .col {
