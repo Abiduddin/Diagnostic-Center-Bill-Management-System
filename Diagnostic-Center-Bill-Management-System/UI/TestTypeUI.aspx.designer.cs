@@ -31,13 +31,13 @@ namespace Diagnostic_Center_Bill_Management_System.UI {
         protected global::System.Web.UI.WebControls.TextBox typeNameTextBox;
         
         /// <summary>
-        /// Button1 control.
+        /// saveButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button saveButton;
         
         /// <summary>
         /// typeViewGridView control.

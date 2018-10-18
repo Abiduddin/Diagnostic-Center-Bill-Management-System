@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Diagnostic_Center_Bill_Management_System.BLL;
@@ -20,7 +21,20 @@ namespace Diagnostic_Center_Bill_Management_System.UI
 
             if (!IsPostBack)
             {
-                testDropdownlist.DataSource = aTestManager.GetAllTest();
+                List<Test> tests = (List<Test>)aTestManager.GetAllTest();
+                
+                int len = tests.Count;
+                string[] testNames = new string[len];
+
+                for (int i = 0; i < len; i++)
+                {
+                    testNames[i] = tests[i].Fee.ToString();
+                }
+                string testNameString = new JavaScriptSerializer().Serialize(testNames);
+
+                allTestHiddenField.Value = testNameString;
+
+                testDropdownlist.DataSource = tests;
                 testDropdownlist.DataTextField = "Name";
                 testDropdownlist.DataValueField = "Id";
                 testDropdownlist.DataBind();
@@ -92,5 +106,6 @@ namespace Diagnostic_Center_Bill_Management_System.UI
             ViewState["patientTest"] = new List<Test>();
 
         }
+
     }
 }

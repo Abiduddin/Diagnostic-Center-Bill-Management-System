@@ -58,6 +58,15 @@ namespace Diagnostic_Center_Bill_Management_System.UI {
         protected global::System.Web.UI.WebControls.DropDownList testDropdownlist;
         
         /// <summary>
+        /// allTestHiddenField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField allTestHiddenField;
+        
+        /// <summary>
         /// feeTextBox control.
         /// </summary>
         /// <remarks>

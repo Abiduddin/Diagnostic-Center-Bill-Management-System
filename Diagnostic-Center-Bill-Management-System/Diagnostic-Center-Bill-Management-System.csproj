@@ -187,6 +187,8 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Scripts\my\validate_error.css" />
+    <Content Include="Scripts\my\validejs.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -237,17 +239,20 @@
     <Compile Include="BLL\TestManager.cs" />
     <Compile Include="BLL\TestRequestManager.cs" />
     <Compile Include="BLL\TestTypeManager.cs" />
+    <Compile Include="BLL\VIEW\PatientPaymentManager.cs" />
     <Compile Include="DAL\GATEWAY\ParentGateway.cs" />
     <Compile Include="DAL\GATEWAY\PatientGateway.cs" />
     <Compile Include="DAL\GATEWAY\PaymentGateway.cs" />
     <Compile Include="DAL\GATEWAY\TestGateway.cs" />
     <Compile Include="DAL\GATEWAY\TestRequestGateway.cs" />
     <Compile Include="DAL\GATEWAY\TestTypeGateway.cs" />
+    <Compile Include="DAL\GATEWAY\VIEW\PatientPaymentGateway.cs" />
     <Compile Include="DAL\MODEL\Patient.cs" />
     <Compile Include="DAL\MODEL\Payment.cs" />
     <Compile Include="DAL\MODEL\Test.cs" />
     <Compile Include="DAL\MODEL\TestRequest.cs" />
     <Compile Include="DAL\MODEL\TestType.cs" />
+    <Compile Include="DAL\MODEL\VIEW MODEL\PatientPayment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\HomeUI.aspx.cs">
       <DependentUpon>HomeUI.aspx</DependentUpon>
@@ -306,9 +311,7 @@
       <DependentUpon>UnpaidBillReport.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\MODEL\VIEW MODEL\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TestRequestUI.aspx.cs" Inherits="Diagnostic_Center_Bill_Management_System.UI.TestRequestUI" %>
+<%@ Import Namespace="Diagnostic_Center_Bill_Management_System.DAL.MODEL" %>
 
 
 <!DOCTYPE html>
@@ -8,7 +9,7 @@
     <title>Diagnostic Center Bill Management</title>
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Contents/bootstrap-datepicker.css" rel="stylesheet" />
-
+    <link href="../Scripts/my/validate_error.css" rel="stylesheet" />
 
 </head>
 
@@ -66,7 +67,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="birthDateTextBox">Date Of Birth : </label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control" ID="birthDateTextBox"></asp:TextBox>
+                            <asp:TextBox runat="server"  autocomplete="off" CssClass="form-control" ID="birthDateTextBox"></asp:TextBox>
                         </div>
                     </div>
 
@@ -80,7 +81,7 @@
 
 
                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="testDropdownlist">Select Test : </label>
+                        <label class="col-sm-4 col-form-label" for="testDropdownlist" >Select Test : </label>
                         <div class="col-sm-8">
                             <asp:DropDownList runat="server" CssClass="form-control" ID="testDropdownlist"></asp:DropDownList>
                         </div>
@@ -88,6 +89,7 @@
 
                     <div class="form-group row">
                         <div class="col-sm-4">
+                            <asp:HiddenField ID="allTestHiddenField" runat="server"/>
                         </div>
                         <label class="col-sm-3 col-form-label" for="feeTextBox">FEE : </label>
                         <div class="col-sm-5">
@@ -170,6 +172,85 @@
     <script src="../Scripts/jquery.validate.js"></script>
     <script src="../Scripts/bootstrap.js"></script>
     <script src="../Scripts/bootstrap-datepicker.js"></script>
+    <script>
+        
+
+        $(document).ready(function() {
+
+            $('#testDropdownlist').change(function() {
+                var option = document.getElementById('testDropdownlist');
+                //var selectId = option.options[option.selectedIndex].value;
+                var selectId = option.selectedIndex;
+
+                var hiddenField =JSON.parse(document.getElementById('allTestHiddenField').value);
+
+                document.getElementById("feeTextBox").value = hiddenField[selectId];
+                //console.log(hiddenField[selectId]);
+                //console.log(hiddenField);
+
+            });
+
+
+
+            $("#birthDateTextBox").datepicker({
+                format:"dd/mm/yyyy",
+                clearBtn:true,
+                daysOfWeekHighlighted: "5,6",
+                todayHighlight: true
+            });
+
+            $.validator.addMethod("CheckDropDownList", function(value, element, parma) {
+                if (value == '0') {
+                    return false;
+                } else {
+                    return true;
+                }
+            },"Please select a Test");
+
+
+            $("#form1").validate({
+
+                rules: {
+
+                    <%=patientNameTextBox.UniqueID %>: {
+                        required: true
+                    },
+
+                    <%=birthDateTextBox.UniqueID %>: {
+                        required: true
+                    },
+
+                    <%=mobileNoTextBox.UniqueID %>: {
+                        required: true,
+                        minlength:11,
+                        maxlength:11
+                    },
+
+                    <%=testDropdownlist.UniqueID %>: {
+                        CheckDropDownList : true 
+                    }
+
+                } ,
+                messages: {
+
+                    <%=patientNameTextBox.UniqueID %>: {
+                        required:"Enter Patient Name"
+                    },
+
+                    <%=mobileNoTextBox.UniqueID %>: {
+                        required: "Enter Your mobile number",
+                        minlength:"Enter Valid Number",
+                        maxlength:"Enter Valid Number"
+                    },
+    
+                    <%=birthDateTextBox.UniqueID %>: {
+                        required:"Enter date of Birth"
+                    }
+                }
+            });
+            
+        });
+    </script>
 </body>
 
 </html>

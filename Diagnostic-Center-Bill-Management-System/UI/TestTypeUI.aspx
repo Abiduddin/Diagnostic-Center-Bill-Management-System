@@ -8,7 +8,7 @@
     <title>Diagnostic Center Bill Management</title>
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Contents/bootstrap-datepicker.css" rel="stylesheet" />
-
+    <link href="../Scripts/my/validate_error.css" rel="stylesheet" />
 
 </head>
 
@@ -67,10 +67,10 @@
 
                 <div class="form-group row">
                     <div class="col-sm-10">
-                        <asp:Button runat="server" CssClass="btn btn-primary" Text="Save" ID="Button1" OnClick="saveButton_Click" />
+                        <asp:Button runat="server" CssClass="btn btn-primary submit" Text="Save" ID="saveButton" OnClick="saveButton_Click" />
                     </div>
                 </div>
-                
+
 
 
 
@@ -112,6 +112,29 @@
     <script src="../Scripts/jquery.validate.js"></script>
     <script src="../Scripts/bootstrap.js"></script>
     <script src="../Scripts/bootstrap-datepicker.js"></script>
+    <%--<script src="../Scripts/my/validejs.js"></script>--%>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#form1").validate({
+                rules: {
+                    <%= typeNameTextBox.UniqueID %>: {
+                        required: true
+                    },
+
+                },
+                messages: {
+                    <%= typeNameTextBox.UniqueID %>: {
+                required: "Enter a Valid Type Name"
+            },
+
+        }
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>

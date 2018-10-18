@@ -7,7 +7,7 @@
     <title>Diagnostic Center Bill Management</title>
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Contents/bootstrap-datepicker.css" rel="stylesheet" />
-
+    <link href="../Scripts/my/validate_error.css" rel="stylesheet" />
 
 </head>
 
@@ -79,7 +79,6 @@
 
                     <div class="form-group row">
                         <div class="col-sm-2">
-                            
                         </div>
                         <div class="col-sm-4">
                             <asp:Button ID="testSaveButton" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="testSaveButton_Click" />
@@ -114,6 +113,47 @@
     <script src="../Scripts/jquery.validate.js"></script>
     <script src="../Scripts/bootstrap.js"></script>
     <script src="../Scripts/bootstrap-datepicker.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $.validator.addMethod("CheckDropDownList", function(value, element, parma) {
+                if (value == '0') {
+                    return false;
+                } else {
+                    return true;
+                }
+            },"Please select a Test Type");
+
+            $("#form1").validate({
+
+                rules: {
+
+                    <%=testNameTextBox.UniqueID %>: {
+                        required: true
+                    },
+
+                    <%=testFeeTextBox.UniqueID %>: {
+                        required: true
+                    },
+
+                    <%=testTypeDropdownlist.UniqueID %>: {
+                        CheckDropDownList : true 
+                    }
+
+        } ,
+                messages: {
+
+                <%=testNameTextBox.UniqueID %>: {
+                        required:"Enter a valid Test Name"
+                    },
+    
+                    <%=testFeeTextBox.UniqueID %>: {
+                        required:"Enter Test Fee"
+                   }
+                }
+                });
+                });
+    </script>
 </body>
 
 </html>

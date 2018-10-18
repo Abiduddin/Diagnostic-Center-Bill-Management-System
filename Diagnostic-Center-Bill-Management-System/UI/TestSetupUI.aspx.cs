@@ -18,6 +18,7 @@ namespace Diagnostic_Center_Bill_Management_System.UI
             if (!IsPostBack)
             {
                 List<TestType> aTestTypes = aTestTypeManager.GetAllTestTypes();
+
                 testTypeDropdownlist.DataSource = aTestTypes;
                 testTypeDropdownlist.DataValueField = "Id";
                 testTypeDropdownlist.DataTextField = "Name";

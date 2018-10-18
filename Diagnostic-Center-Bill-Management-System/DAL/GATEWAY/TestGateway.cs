@@ -34,6 +34,13 @@ namespace Diagnostic_Center_Bill_Management_System.DAL.GATEWAY
             if (Reader.HasRows)
             {
                 aTests = new List<Test>();
+
+                // initialise "------select Test----"  value 0";
+                Test aT = new Test();
+                aT.Name = "------Select Test-------";
+                aT.Id = 0;
+                aTests.Add(aT);
+
                 while (Reader.Read())
                 {
                     Test aTest = new Test();

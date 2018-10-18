@@ -33,6 +33,14 @@ namespace Diagnostic_Center_Bill_Management_System.DAL.GATEWAY
             if (Reader.HasRows)
             {
                 aTestTypes = new List<TestType>();
+
+                // initialise 0 value ---Select Type-----
+                TestType aType = new TestType();
+                aType.Name = "------Select Test Type------";
+                aType.Id = 0;
+                aTestTypes.Add(aType);
+
+
                 while (Reader.Read())
                 {
                     TestType aTestType = new TestType();

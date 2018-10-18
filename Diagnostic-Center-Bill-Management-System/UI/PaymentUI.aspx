@@ -8,7 +8,7 @@
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Contents/bootstrap-datepicker.css" rel="stylesheet" />
 
-
+    <link href="../Scripts/my/validate_error.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -107,6 +107,52 @@
     <script src="../Scripts/jquery.validate.js"></script>
     <script src="../Scripts/bootstrap.js"></script>
     <script src="../Scripts/bootstrap-datepicker.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#form1").validate({
+                rules: {
+                    <%= billNoTextBox.UniqueID%>:{
+                      required: {
+                          depends: function(element) {
+                              if ($('#mobileNoTextBox').val() == "") {
+                                  return true;
+                              } else {
+                                  return false;
+                              }
+                          }
+                      }
+                  },
+                    <%= mobileNoTextBox.UniqueID%>: {
+                      required:function(element) {
+                          if ($('#billNoTextBox').val() == "") {
+                              return true;
+                          } else {
+                              return false;
+                          }
+
+                      },
+                      minlength:11,
+                      maxlength:11
+                  }
+                
+            },
+
+                messages: {
+                    <%= billNoTextBox.UniqueID%>: {
+                        required: "Enter Bill Number"
+                     },
+                    <%= mobileNoTextBox.UniqueID%>: {
+                         required: "Enter Patient Mobile number",
+                         minlength:"Enter Valid Number",
+                         maxlength:"Enter Valid Number"
+                    }
+                 }
+
+        });
+             });
+    </script>
 </body>
 
 </html>

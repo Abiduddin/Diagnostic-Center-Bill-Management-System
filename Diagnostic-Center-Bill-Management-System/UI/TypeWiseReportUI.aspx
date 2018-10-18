@@ -7,7 +7,7 @@
     <title>Diagnostic Center Bill Management</title>
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Contents/bootstrap-datepicker.css" rel="stylesheet" />
-
+    <link href="../Scripts/my/validate_error.css" rel="stylesheet" />
 
 </head>
 
@@ -120,6 +120,32 @@
     <script src="../Scripts/jquery.validate.js"></script>
     <script src="../Scripts/bootstrap.js"></script>
     <script src="../Scripts/bootstrap-datepicker.js"></script>
+    <script>
+        $(document).ready(function() {
+
+
+            $("#form1").validate({
+                rules: {
+                    <%=fromDateTextBox.UniqueID%>: {
+                        required: true
+                    },
+                    <%=toDateTextBoxTextBox.UniqueID%>: {
+                        required: true
+                    }
+                },
+                messages: {
+                     <%=fromDateTextBox.UniqueID%>: {
+                         required: "Enter From Date"
+                     },
+                    <%=toDateTextBoxTextBox.UniqueID%>: {
+                        required: "Enter To Date"
+                    }
+                }
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>
