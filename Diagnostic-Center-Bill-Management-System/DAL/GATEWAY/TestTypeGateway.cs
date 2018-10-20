@@ -35,10 +35,10 @@ namespace Diagnostic_Center_Bill_Management_System.DAL.GATEWAY
                 aTestTypes = new List<TestType>();
 
                 // initialise 0 value ---Select Type-----
-                TestType aType = new TestType();
+/*                TestType aType = new TestType();
                 aType.Name = "------Select Test Type------";
                 aType.Id = 0;
-                aTestTypes.Add(aType);
+                aTestTypes.Add(aType);*/
 
 
                 while (Reader.Read())

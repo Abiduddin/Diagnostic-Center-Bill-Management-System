@@ -38,6 +38,7 @@ namespace Diagnostic_Center_Bill_Management_System.UI
                 testDropdownlist.DataTextField = "Name";
                 testDropdownlist.DataValueField = "Id";
                 testDropdownlist.DataBind();
+                testDropdownlist.Items.Insert(0,"--------- Select Test ---------");
                 List<Test> aTests = new List<Test>();
                 ViewState["patientTest"] = aTests;
 
@@ -62,7 +63,13 @@ namespace Diagnostic_Center_Bill_Management_System.UI
             {
                 aTests.Add(aTest);
             }
-
+            int totalCost = 0;
+            foreach (var item in aTests)
+            {
+                totalCost += item.Fee;
+            }
+            totalMoneyTextBox.Text = totalCost.ToString();
+            
             ViewState["patientTest"] = aTests;
 
             testRequestGridView.DataSource = aTests;
@@ -92,7 +99,7 @@ namespace Diagnostic_Center_Bill_Management_System.UI
             aPayment.IsPaid = false;
             aPayment.TotalFee = aPaymentManager.GetTotalFee(aTests);
             // TAKE INPUT FROM USER FORM
-            aPayment.DueDate = "01/01/2018";
+            aPayment.DueDate = DateTime.Now.ToString("yyyy-MM-dd");
 
 
             aPaymentManager.SavePayment(aPayment);

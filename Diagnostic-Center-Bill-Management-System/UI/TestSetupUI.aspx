@@ -86,7 +86,24 @@
                     </div>
 
 
-                    <asp:GridView runat="server" ID="TestGridView" CellPadding="4" ForeColor="#333333" GridLines="None" Height="213px" Width="357px">
+                    <asp:GridView runat="server" ID="TestGridView" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Height="213px" Width="357px">
+                        <Columns>
+                        <asp:TemplateField HeaderText="Serial">
+                            <ItemTemplate>
+                                <%#Container.DataItemIndex+1 %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Test Name">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<% #Eval("Name")%>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Fee">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<% #Eval("Fee")%>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                    </Columns>
                         <AlternatingRowStyle BackColor="White" />
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

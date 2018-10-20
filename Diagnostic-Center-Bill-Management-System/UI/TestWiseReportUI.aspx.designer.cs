@@ -31,13 +31,13 @@ namespace Diagnostic_Center_Bill_Management_System.UI {
         protected global::System.Web.UI.WebControls.TextBox fromDateTextBox;
         
         /// <summary>
-        /// toDateTextBoxTextBox control.
+        /// toDateTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox toDateTextBoxTextBox;
+        protected global::System.Web.UI.WebControls.TextBox toDateTextBox;
         
         /// <summary>
         /// showButton control.
@@ -49,13 +49,13 @@ namespace Diagnostic_Center_Bill_Management_System.UI {
         protected global::System.Web.UI.WebControls.Button showButton;
         
         /// <summary>
-        /// GridView1 control.
+        /// TestWiseReportGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView TestWiseReportGridView;
         
         /// <summary>
         /// pdfButton control.

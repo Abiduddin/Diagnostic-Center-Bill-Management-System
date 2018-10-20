@@ -66,15 +66,22 @@
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="toDateTextBox">To Date: </label>
                     <div class="col-sm-6">
-                        <asp:TextBox CssClass="form-control" ID="toDateTextBoxTextBox" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="toDateTextBox" runat="server"></asp:TextBox>
                     </div>
                     <div class="col-sm-2">
-                        <asp:Button runat="server" CssClass="btn btn-primary" ID="showButton" Text="Show" />
+                        <asp:Button runat="server" CssClass="btn btn-primary" ID="showButton" Text="Show" OnClick="showButton_Click" />
                     </div>
                 </div>
                 <br />
                 <br />
-                <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="218px" Width="381px">
+                <asp:GridView ID="TestWiseReportGridView" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="218px" Width="381px">
+                    <Columns>
+                        <asp:TemplateField HeaderText="Serial">
+                            <ItemTemplate>
+                                <%#Container.DataItemIndex+1 %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -122,6 +129,18 @@
     
     <script>
         $(document).ready(function() {
+            $("#toDateTextBox").datepicker({
+                format:"yyyy-mm-dd",
+                clearBtn:true,
+                daysOfWeekHighlighted: "5,6",
+                todayHighlight: true
+            });
+            $("#fromDateTextBox").datepicker({
+                format:"yyyy-mm-dd",
+                clearBtn:true,
+                daysOfWeekHighlighted: "5,6",
+                todayHighlight: true
+            });
 
 
             $("#form1").validate({
@@ -129,7 +148,7 @@
                     <%=fromDateTextBox.UniqueID%>: {
                         required: true
                     },
-                    <%=toDateTextBoxTextBox.UniqueID%>: {
+                    <%=toDateTextBox.UniqueID%>: {
                         required: true
                     }
                 },
@@ -137,7 +156,7 @@
                     <%=fromDateTextBox.UniqueID%>: {
                          required: "Enter From Date"
                      },
-                    <%=toDateTextBoxTextBox.UniqueID%>: {
+                    <%=toDateTextBox.UniqueID%>: {
                         required: "Enter To Date"
                     }
                 }

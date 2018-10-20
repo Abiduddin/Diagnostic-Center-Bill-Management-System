@@ -78,7 +78,7 @@
                     <Columns>
                         <asp:TemplateField HeaderText="Serial">
                             <ItemTemplate>
-                                <asp:Label runat="server" Text='<% #Eval("Id")%>'></asp:Label>
+                                <%#Container.DataItemIndex+1 %>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Type Name">

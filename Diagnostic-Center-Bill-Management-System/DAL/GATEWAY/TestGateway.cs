@@ -36,10 +36,10 @@ namespace Diagnostic_Center_Bill_Management_System.DAL.GATEWAY
                 aTests = new List<Test>();
 
                 // initialise "------select Test----"  value 0";
-                Test aT = new Test();
+                /*Test aT = new Test();
                 aT.Name = "------Select Test-------";
                 aT.Id = 0;
-                aTests.Add(aT);
+                aTests.Add(aT);*/
 
                 while (Reader.Read())
                 {

@@ -83,7 +83,8 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="testDropdownlist" >Select Test : </label>
                         <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control" ID="testDropdownlist"></asp:DropDownList>
+                            <asp:DropDownList runat="server" CssClass="form-control" ID="testDropdownlist">
+                            </asp:DropDownList>
                         </div>
                     </div>
 
@@ -112,10 +113,10 @@
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:TemplateField HeaderText="Serial">
-                                <ItemTemplate>
-                                    <asp:Label runat="server" Text='<% #Eval("Id")%>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                            <ItemTemplate>
+                                <%#Container.DataItemIndex+1 %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                             <asp:TemplateField HeaderText="Test">
                                 <ItemTemplate>
                                     <asp:Label runat="server" Text='<% #Eval("Name")%>'></asp:Label>
@@ -184,7 +185,7 @@
 
                 var hiddenField =JSON.parse(document.getElementById('allTestHiddenField').value);
 
-                document.getElementById("feeTextBox").value = hiddenField[selectId];
+                document.getElementById("feeTextBox").value = hiddenField[selectId-1];
                 //console.log(hiddenField[selectId]);
                 //console.log(hiddenField);
 
@@ -193,7 +194,7 @@
 
 
             $("#birthDateTextBox").datepicker({
-                format:"dd/mm/yyyy",
+                format:"yyyy-mm-dd",
                 clearBtn:true,
                 daysOfWeekHighlighted: "5,6",
                 todayHighlight: true

@@ -67,15 +67,44 @@
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="toDateTextBox">To Date: </label>
                     <div class="col-sm-6">
-                        <asp:TextBox CssClass="form-control" ID="toDateTextBoxTextBox" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="toDateTextBox" runat="server"></asp:TextBox>
                     </div>
                     <div class="col-sm-2">
-                        <asp:Button runat="server" CssClass="btn btn-primary" ID="showButton" Text="Show" />
+                        <asp:Button runat="server" CssClass="btn btn-primary" ID="showButton" Text="Show" OnClick="showButton_Click" />
                     </div>
                 </div>
                 <br />
                 <br />
-                <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="218px" Width="381px">
+                <asp:GridView ID="UnpaidGridView" AutoGenerateColumns="False" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="218px" Width="381px">
+                    <Columns>
+                        <asp:TemplateField HeaderText="Serial">
+                            <ItemTemplate>
+                                <%#Container.DataItemIndex+1 %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Bill Number">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<% #Eval("BillNo")%>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Contract No">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<% #Eval("MobileNo")%>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Patient Name">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<% #Eval("Name")%>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Bill Amount">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<% #Eval("TotalFee")%>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                    </Columns>
+                    
+
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -122,14 +151,25 @@
     <script src="../Scripts/bootstrap-datepicker.js"></script>
     <script>
         $(document).ready(function() {
-
+            $("#toDateTextBox").datepicker({
+                format:"yyyy-mm-dd",
+                clearBtn:true,
+                daysOfWeekHighlighted: "5,6",
+                todayHighlight: true
+            });
+            $("#fromDateTextBox").datepicker({
+                format:"yyyy-mm-dd",
+                clearBtn:true,
+                daysOfWeekHighlighted: "5,6",
+                todayHighlight: true
+            });
 
             $("#form1").validate({
                 rules: {
                     <%=fromDateTextBox.UniqueID%>: {
                         required: true
                     },
-                    <%=toDateTextBoxTextBox.UniqueID%>: {
+                    <%=toDateTextBox.UniqueID%>: {
                         required: true
                     }
                 },
@@ -137,7 +177,7 @@
                     <%=fromDateTextBox.UniqueID%>: {
                          required: "Enter From Date"
                      },
-                    <%=toDateTextBoxTextBox.UniqueID%>: {
+                    <%=toDateTextBox.UniqueID%>: {
                         required: "Enter To Date"
                     }
                 }

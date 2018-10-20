@@ -240,6 +240,9 @@
     <Compile Include="BLL\TestRequestManager.cs" />
     <Compile Include="BLL\TestTypeManager.cs" />
     <Compile Include="BLL\VIEW\PatientPaymentManager.cs" />
+    <Compile Include="BLL\VIEW\TestWiseReportManager.cs" />
+    <Compile Include="BLL\VIEW\TypeWiseReportManager.cs" />
+    <Compile Include="BLL\VIEW\UnpaidBillReportManager.cs" />
     <Compile Include="DAL\GATEWAY\ParentGateway.cs" />
     <Compile Include="DAL\GATEWAY\PatientGateway.cs" />
     <Compile Include="DAL\GATEWAY\PaymentGateway.cs" />
@@ -247,12 +250,19 @@
     <Compile Include="DAL\GATEWAY\TestRequestGateway.cs" />
     <Compile Include="DAL\GATEWAY\TestTypeGateway.cs" />
     <Compile Include="DAL\GATEWAY\VIEW\PatientPaymentGateway.cs" />
+    <Compile Include="DAL\GATEWAY\VIEW\TestWiseReportGateway.cs" />
+    <Compile Include="DAL\GATEWAY\VIEW\TypeWiseReportGateway.cs" />
+    <Compile Include="DAL\GATEWAY\VIEW\UnpaidBillReportGateway.cs" />
     <Compile Include="DAL\MODEL\Patient.cs" />
     <Compile Include="DAL\MODEL\Payment.cs" />
     <Compile Include="DAL\MODEL\Test.cs" />
     <Compile Include="DAL\MODEL\TestRequest.cs" />
     <Compile Include="DAL\MODEL\TestType.cs" />
     <Compile Include="DAL\MODEL\VIEW MODEL\PatientPayment.cs" />
+    <Compile Include="DAL\MODEL\VIEW MODEL\TestTypeRequestView.cs" />
+    <Compile Include="DAL\MODEL\VIEW MODEL\TestWiseReport.cs" />
+    <Compile Include="DAL\MODEL\VIEW MODEL\TypeWiseReport.cs" />
+    <Compile Include="DAL\MODEL\VIEW MODEL\UnpaidBillView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\HomeUI.aspx.cs">
       <DependentUpon>HomeUI.aspx</DependentUpon>

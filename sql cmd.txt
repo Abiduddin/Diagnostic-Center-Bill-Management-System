@@ -1,0 +1,18 @@
+select p.BillNo,p.TotalFee, p.DueDate,p.IsPaid,Patient.MobileNo from Payment as p LEFT JOIN 
+TestRequest as t on p.BillNo = t.BillNo
+LEFT JOIN Patient on t.PatientId = Patient.Id
+
+
+create view TestTypeRequestView as 
+select tr.TestId,t.TypeId,p.DueDate from TestRequest as tr left join test as t on tr.TestId = t.Id
+left join Payment as p on tr.BillNo = p.BillNo
+
+
+CREATE VIEW TestTypeRequestView AS
+select tr.TestId,t.TypeId,t.Fee,p.DueDate from TestRequest as tr left join test as t on tr.TestId = t.Id
+left join Payment as p on tr.BillNo = p.BillNo
+
+
+Create view UnpaidBillView as
+Select DISTINCT py.BillNo,p.MobileNo,p.Name,py.TotalFee from Payment as py left join TestRequest as tr on py.BillNo=tr.BillNo
+left join Patient as p on tr.PatientId=p.Id where py.IsPaid = 0 

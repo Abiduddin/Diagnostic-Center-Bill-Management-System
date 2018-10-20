@@ -23,6 +23,7 @@ namespace Diagnostic_Center_Bill_Management_System.UI
                 testTypeDropdownlist.DataValueField = "Id";
                 testTypeDropdownlist.DataTextField = "Name";
                 testTypeDropdownlist.DataBind();
+                testTypeDropdownlist.Items.Insert(0,"-------- Select Test Type -----------");
             }
 
             DisplayTest();
