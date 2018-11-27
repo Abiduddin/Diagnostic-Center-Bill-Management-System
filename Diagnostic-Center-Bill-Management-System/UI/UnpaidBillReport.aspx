@@ -154,12 +154,14 @@
             $("#toDateTextBox").datepicker({
                 format:"yyyy-mm-dd",
                 clearBtn:true,
+                autoclose: true,
                 daysOfWeekHighlighted: "5,6",
                 todayHighlight: true
             });
             $("#fromDateTextBox").datepicker({
                 format:"yyyy-mm-dd",
                 clearBtn:true,
+                autoclose: true,
                 daysOfWeekHighlighted: "5,6",
                 todayHighlight: true
             });

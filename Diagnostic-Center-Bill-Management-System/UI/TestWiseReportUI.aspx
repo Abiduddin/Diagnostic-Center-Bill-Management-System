@@ -131,12 +131,14 @@
         $(document).ready(function() {
             $("#toDateTextBox").datepicker({
                 format:"yyyy-mm-dd",
+                autoclose: true,
                 clearBtn:true,
                 daysOfWeekHighlighted: "5,6",
                 todayHighlight: true
             });
             $("#fromDateTextBox").datepicker({
                 format:"yyyy-mm-dd",
+                autoclose: true,
                 clearBtn:true,
                 daysOfWeekHighlighted: "5,6",
                 todayHighlight: true
